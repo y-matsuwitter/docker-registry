@@ -8,6 +8,7 @@ common:
     s3_access_key: REPLACEME
     s3_secret_key: REPLACEME
     s3_bucket: REPLACEME
+    s3_host: REPLACEME
     s3_encrypt: REPLACEME
     s3_secure: REPLACEME
 

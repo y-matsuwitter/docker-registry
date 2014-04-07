@@ -2,7 +2,7 @@
 # To specify prod flavor, set the environment variable SETTINGS_FLAVOR=prod
 
 # example launching with this config, in a docker image:
-# docker run -p 5000:5000 -e SETTINGS_FLAVOR=prod -e AWS_KEY=X -e AWS_SECRET=Y -e AWS_BUCKET=images registry-image
+# docker run -p 5000:5000 -e SETTINGS_FLAVOR=prod -e AWS_KEY=X -e AWS_SECRET=Y -e AWS_BUCKET=images -e AWS_HOST=s3.amazonaws.com registry-image
 
 prod:
     storage: s3
@@ -10,6 +10,7 @@ prod:
     s3_access_key: _env:AWS_KEY
     s3_secret_key: _env:AWS_SECRET
     s3_bucket: _env:AWS_BUCKET
+    s3_host: _env:AWS_HOST
     s3_encrypt: true
     s3_secure: true
     secret_key: REPLACEME

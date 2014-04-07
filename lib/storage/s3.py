@@ -22,9 +22,14 @@ class S3Storage(BotoStorage):
         BotoStorage.__init__(self, config)
 
     def makeConnection(self):
+        if self._config.s3_host:
+            host = self._config.s3_host
+        else:
+            host = "s3.amazonaws.com"
         return boto.s3.connection.S3Connection(
             self._config.s3_access_key,
             self._config.s3_secret_key,
+            host=host,
             is_secure=(self._config.s3_secure is True))
 
     def makeKey(self, path):
